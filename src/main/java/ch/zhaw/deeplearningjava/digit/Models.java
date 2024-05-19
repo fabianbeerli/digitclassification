@@ -14,7 +14,7 @@ import java.util.List;
 /** A helper class loads and saves model. */
 public final class Models {
 
-    // the number of classification labels: boots, sandals, shoes, slippers
+    // the number of classification labels: 0, 1 , 2
     public static final int NUM_OF_OUTPUT = 10;
 
     // the height and width for pre-processing of the image

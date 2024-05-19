@@ -2,38 +2,68 @@
 <html>
 
 <head>
-    <title>Image Classification</title>
+    <title>Digit Classification</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="script.js" async></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        #answerPart {
+            margin-top: 20px;
+        }
+
+        #preview {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: #fff;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="container-fluid">
-        <h1>Footwear Classification</h1>
-        <p>DeepJavaLibrary (DJL) Demonstration by mosa</p>
+    <div class="container">
+        <h1 class="text-center">Digit Classification</h1>
 
-        <form>
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Bitte Bild hochladen (jpeg, png)</label>
-                <input type="file" accept="image/png, image/jpeg" class="form-control-file" id="image" name="image"
-                    onchange="checkFiles(this.files);">
+        <div class="d-flex justify-content-center">
+            <form class="text-center">
+                <div class="form-group">
+                    <label for="image">Please upload an image (jpeg, png)</label>
+                    <input type="file" accept="image/png, image/jpeg" class="form-control-file" id="image" name="image"
+                        onchange="checkFiles(this.files);">
+                </div>
+            </form>
+        </div>
+
+        <div id="answerPart" class="card" style="visibility: hidden;">
+            <div class="card-body">
+                <h5 class="card-title">Result</h5>
+                <p><b>Answer:</b> <span id="answer"></span></p>
+                <p id="previewPart">
+                    <b>Analyzed Image:</b><br>
+                    <img id="preview" width="300" src="#" alt="preview" />
+                </p>
             </div>
-        </form>
-
-        <div id="answerPart" style="visibility: hidden;">
-            <p><b>Answer:</b>
-            <div id="answer"></div>
-            </p>
-
-            <p id="previewPart"><b>Analyzed Image:</b>
-            <p><img id="preview" width="300" src="#" alt="preview" /></p>
-            </p>
         </div>
     </div>
-
 
 </body>
 

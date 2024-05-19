@@ -1,12 +1,16 @@
-FROM openjdk:17-jdk-slim
+FROM maven:3.8.4-openjdk-17-slim as build
 
-# Copy Files
 WORKDIR /usr/src/app
 COPY . .
 
-# Install
-RUN ./mvnw -Dmaven.test.skip=true package
+RUN mvn -Dmaven.test.skip=true package
 
-# Docker Run Command
+FROM openjdk:17-jdk-slim
+
+WORKDIR /usr/src/app
+
+COPY --from=build /usr/src/app/target/digitclassification-0.0.1-SNAPSHOT.jar .
+COPY models /usr/src/app/models
+
 EXPOSE 8080
-CMD ["java","-jar","/usr/src/app/target/playground-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-jar","digitclassification-0.0.1-SNAPSHOT.jar"]

@@ -50,6 +50,7 @@ public class Inference {
         Image img = ImageFactory.getInstance().fromImage(bi);
 
         Classifications predictResult = this.predictor.predict(img);
+
         return predictResult;
     }
 }

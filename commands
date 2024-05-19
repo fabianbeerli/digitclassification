@@ -1,0 +1,7 @@
+az group create --name mdm-spring-digitclassification --location switzerlandnorth
+
+az appservice plan create --name mdm-spring-digitclassification --resource-group mdm-spring-digitclassification --sku F1 --islinux
+
+az webapp create --resource-group mdm-spring-digitclassification --plan mdm-spring-digitclassification --name mdm-spring-digitclassification --deployment-container-image-name fabianbeerli/spring-boot-digitclassifier:latest
+
+az webapp config appsettings set --resource-group mdm-spring-digitclassification --name mdm-spring-digitclassification --settings WEBSITES_PORT=8080
